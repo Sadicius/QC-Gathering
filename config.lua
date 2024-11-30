@@ -6,6 +6,7 @@
 
 
 Config = {
+  CronJob = '*/1 * * * *',
   BushHarvest = {
     Items = {
       { 
