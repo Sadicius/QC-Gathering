@@ -44,14 +44,12 @@ AddEventHandler('qc-gathering:server:harvestsave', function(harvested)
     found = false
 end)
 
-Citizen.CreateThread(function()
-    while true do
-        Wait(5000)
-        for k,v in pairs(Harvested) do
-            if (v.timeshavested > 0) then
-                for j,k in pairs(Config.BushHarvest.Items) do
-                    if (v.object == k.Hash) then
-                        if (v.time + k.Time < os.time()) then
+lib.cron.new(Config.CronJob, function ()
+        for k, v in pairs(Harvested) do
+            if v.timeshavested > 0 then
+                for j, item in pairs(Config.BushHarvest.Items) do
+                    if v.object == item.Hash then
+                        if v.time + item.Time < os.time() then
                             v.timeshavested = v.timeshavested - 1
                             v.time = os.time()
                             SaveResourceFile(GetCurrentResourceName(), "gathering.json", json.encode(Harvested), -1)
@@ -60,13 +58,12 @@ Citizen.CreateThread(function()
                     end
                 end
             end
-            if (v.timeshavested == 0) then
+            if v.timeshavested <= 0 then
                 table.remove(Harvested, k)
                 SaveResourceFile(GetCurrentResourceName(), "gathering.json", json.encode(Harvested), -1)
                 TriggerEvent('qc-gathering:server:gatherload')
             end
         end
-    end
 end)
 
 RegisterServerEvent('qc-gathering:server:gatherload')
