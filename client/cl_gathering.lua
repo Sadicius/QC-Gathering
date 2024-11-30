@@ -51,7 +51,7 @@ RegisterNetEvent('qc-gathering:client:neargather', function(Coords, Data, obj)
   local canHarvest = true
   local foundHarvest = false
   for k, v in pairs(Harvested) do
-      local dist = GetDistanceBetweenCoords(Coords.x, Coords.y, Coords.z, v.coords.x, v.coords.y, v.coords.z, false)
+    local dist = #(vector3(Coords.x, Coords.y, Coords.z) - vector3(v.coords.x, v.coords.y, v.coords.z))
       if dist < 1 then
           foundHarvest = true
           if (v.timeshavested >= Data.MaxHarvest) then
