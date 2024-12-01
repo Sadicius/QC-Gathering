@@ -5,5 +5,14 @@
     "qc_lang_4" : "You're hiting the tree too soft, try harder!",
     "qc_lang_5" : "You've not found any fruits or herbs this time!",
     "qc_lang_6" : "You have harvested this bush too many times",
-    "qc_lang_7" : "You dont have the tool required!"
+    "qc_lang_7" : "You dont have the tool required!",
+    "qc_lang_8" : "Harvest ",
+
+    "qc_lang_9" : "Gathered ",
+    "qc_lang_10" : "Citizenid ",
+    "qc_lang_11" : "Ingame ID ",
+    "qc_lang_12" : "Name ",
+    "qc_lang_13" : "Location ",
+    "qc_lang_14" : "Reward ",
+    "qc_lang_15" : "Gathering for RSG Framework "
 }

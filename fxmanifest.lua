@@ -10,19 +10,17 @@ version '1.0.0'
 
 shared_script {
 	'@ox_lib/init.lua',
-	'config.lua'
+	'shared/config.lua',
+	'gatherhash.lua'
 }
 
 client_script {
 	'client/*.lua',
-	'notifications.js',
-	'config.lua'
 }
 
 server_script {
 	'@oxmysql/lib/MySQL.lua',
-	'server/*.lua',
-	'config.lua'
+	'server/*.lua'
 }
 
 files {
